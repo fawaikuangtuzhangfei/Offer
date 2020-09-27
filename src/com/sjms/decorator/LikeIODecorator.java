@@ -2,6 +2,7 @@ package com.sjms.decorator;
 
 /**
  * 装饰者模式
+ * 通过不断装配来达到想要的效果
  * @Description: TODO
  * @author nanshoudabaojian
  * @date 2020年9月27日 上午9:23:02
@@ -9,7 +10,8 @@ package com.sjms.decorator;
 public class LikeIODecorator {
 	public static void main(String[] args) {
 		ZeroPerson zeroPerson = new ZeroPerson();
-		TwoPerson person = new TwoPerson(new FirstPerson(zeroPerson));
+//		TwoPerson person = new TwoPerson(new FirstPerson(zeroPerson));
+		TwoPerson person = new TwoPerson(zeroPerson);
 		person.doSomething();
 		person.go();
 	}
@@ -77,22 +79,24 @@ class FirstPerson extends ManyPerson{
 		this.person = person;
 	}
 	
-	private void sing(){
+	private void doSing(){
 		System.out.println("唱歌...");
 	}
 	
-	private void dance(){
+	private void goDance(){
 		System.out.println("去参加舞会...");
 	}
 
 	@Override
 	public void doSomething() {
-		sing();
+		super.doSomething();
+		doSing();
 	}
 
 	@Override
 	public void go() {
-		dance();
+		super.go();
+		goDance();
 	}
 	
 }
