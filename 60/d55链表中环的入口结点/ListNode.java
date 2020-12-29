@@ -1,4 +1,4 @@
-package d55;
+package d55链表中环的入口结点;
 
 /**
  * @author yc
@@ -12,3 +12,5 @@ public class ListNode {
         this.val = val;
     }
 }
+
+
