@@ -14,7 +14,7 @@ public class MusicPhone extends PhoneDecorate{
     }
     @Override
     public void call(){
-        listenMusic();
         super.call();
+        listenMusic();
     }
 }
