@@ -8,11 +8,26 @@ import com.jz.common.TreeNode;
  *
  *  ‰»Î£∫{8,6,6,5,7,7,5}   {8,6,9,5,7,7,5}
  *  ‰≥ˆ£∫true              false
+ * {8,6,6,5,7,7}
  */
 public class Solution {
 
     boolean isSymmetrical(TreeNode root){
-        return false;
+        if(root == null){
+            return false;
+        }
+        return check(root.left, root.right);
+    }
+
+    boolean check(TreeNode left, TreeNode right){
+        if(left == null && right == null){
+            return true;
+        }
+        if(left == null || right == null || left.val != right.val){
+            return false;
+        }else{
+            return check(left.left, right.right) && check(left.right, right.left);
+        }
     }
 
 }
