@@ -35,11 +35,39 @@ package leetcode.editor.cn;
 public class LongestCommonPrefix{
     public static void main(String[] args) {
         Solution solution = new LongestCommonPrefix().new Solution();
-        String[] strs = new String[]{"aaa","aa","aaa"};
-        solution.longestCommonPrefix(strs);
+        String[] strs = new String[]{"ad","by","cp"};
+        System.out.println(solution.longestCommonPrefix(strs));
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        int len = strs[0].length();
+        String min = strs[0];
+        // 拿到最小长度
+        for (int i = 1; i < strs.length; i++) {
+            if(len > strs[i].length()) {
+                len = strs[i].length();
+                min = strs[i];
+            }
+        }
+
+        int p = 0;
+        while(p < strs.length){
+            while(strs[p].indexOf(min) != 0){
+                min = min.substring(0, min.length()-1);
+            }
+            p++;
+        }
+
+        return min;
+    }
+}
+//leetcode submit region end(Prohibit modification and deletion)
+
+}
+
+/*
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         int len = 201;
@@ -64,7 +92,4 @@ class Solution {
         }
         return new String(first).substring(0, len);
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
-
-}
+}*/
