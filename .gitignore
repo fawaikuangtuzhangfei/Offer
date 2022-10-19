@@ -11,3 +11,7 @@
 /.idea/*
 
 .gitignore
+*.json
+*.md
+*.png
+*.lcv
