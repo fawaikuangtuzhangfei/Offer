@@ -16,8 +16,8 @@ public class Solution {
     	if(root1 == null || root2 == null){
     		return false;
     	}
-    	//进行整个树的比较 根左树 根右树
-        return isChild(root1, root2) || isChild(root1.left, root2) || isChild(root1.right, root2);
+    	//先拿根比较，再不停的拿子树作为根节点进行进一步的不叫
+        return isChild(root1, root2) || HasSubtree(root1.left, root2) || HasSubtree(root1.right, root2);
     }
     public boolean isChild(TreeNode root1,TreeNode root2){
     	//如果树2遍历完了还没出错 就返回true
